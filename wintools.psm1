@@ -1,4 +1,4 @@
-function Set-LastWriteTime {
+function Set-LastWriteTimes {
     param (
         [string] $folder = "."
     )
@@ -7,4 +7,11 @@ function Set-LastWriteTime {
     foreach ($item in $items) {
         $item.LastWriteTime = Get-Date
     }
+}
+function FunctionName {
+    param (
+        [string]
+        [Parameter(Mandatory=$true)]$file
+    )
+    $(Get-ChildItem -Path $file -Force).LastWriteTime = Get-Date
 }
